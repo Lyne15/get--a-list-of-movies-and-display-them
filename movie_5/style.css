@@ -1,0 +1,52 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+}
+
+.main_content {
+    background-image: url("https://image.tmdb.org/t/p/original//jeH6MaDD1CnZ8TLupBAi0DYWn2F.jpg");
+    height: 100%;
+    width: 100%;
+
+}
+
+#original_title {
+    font-size: 3.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: darkolivegreen;
+    text-align: center;
+    opacity: 20%;
+
+}
+
+#overview {
+    font-family: monospace;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    max-width: 200px;
+    height: 100%;
+    margin-left: 10px;
+    opacity: 60%;
+    font-size: 1.5em;
+}
+
+.side-nav {
+    background-color: black;
+    color: white;
+    background-image: url("https://image.tmdb.org/t/p/original//bZt4CwuaZWadSh9OEcNQCZbPFR1.jpg");
+
+}
+
+#original_title2 {
+    font-size: 3em;
+    font-family: cursive;
+    text-align: center;
+    width: 30%;
+
+}

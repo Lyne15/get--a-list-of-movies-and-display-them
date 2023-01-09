@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- https://image.tmdb.org/t/p/original//bHePzkyRcMhnab2qZbhj1bCElnf.jpg -->
+    <!-- https://image.tmdb.org/t/p/original//1qCq228LsNtUseCnNE7Naw6NBUz.jpg -->
+    <div class="main-content">
+        <div class="title">
+            <h1 id="title">title</h1>
+            <h1 id="original_title">original title</h1>
+        </div>
+        <p id="overview">overview</p>
+    </div>
+
+    <div class="content">
+        <div class="genres">
+            <h3 class="three-genres">GENRES:</h3>
+            <p id="genres1">genres</p>
+            <p id="genres2">genres</p>
+            <p id="genres3">genres</p>
+        </div>
+        <div class="language">
+            <h3 class="original-language">ORIGINAL LANGUAGE </h3>
+            <p id="language">language</p>
+        </div>
+
+        <div class="companies">
+            <h3 id="companies">PRODUCTION COMPANIES</h3>
+            <p id="production_companies">production_companies</p>
+            <p id="production_companies1">production_companies</p>
+            <p id="production_companies2">production_companies</p>
+            <p id="production_companies3">production_companies</p>
+            <p id="production_companies4">production_companies</p>
+            <p id="production_companies5">production_companies</p>
+        </div>
+
+        <div class="countries">
+            <h3 class="production_countries">PRODUCTION COUNTRIES</h3>
+            <p id="production_countries1">country</p>
+            <p id="production_countries2">country</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let movieID = 300;
+        const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+        const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+
+
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+
+                document.querySelector("#title").innerHTML = data.title;
+                document.querySelector("#original_title").innerHTML = data.original_title;
+                document.querySelector("#genres1").innerHTML = data.genres[0].name;
+                document.querySelector("#genres2").innerHTML = data.genres[1].name;
+                document.querySelector("#genres3").innerHTML = data.genres[2].name;
+                document.querySelector("#language").innerHTML = data.original_language;
+                document.querySelector("#overview").innerHTML = data.overview;
+                document.querySelector("#production_companies").innerHTML = data.production_companies[0].name;
+                document.querySelector("#production_companies1").innerHTML = data.production_companies[1].name;
+                document.querySelector("#production_companies2").innerHTML = data.production_companies[2].name;
+                document.querySelector("#production_companies3").innerHTML = data.production_companies[3].name;
+                document.querySelector("#production_companies4").innerHTML = data.production_companies[4].name;
+                document.querySelector("#production_companies5").innerHTML = data.production_companies[5].name;
+                document.querySelector("#production_countries1").innerHTML = data.production_countries[0].name;
+                document.querySelector("#production_countries2").innerHTML = data.production_countries[1].name;
+
+            });
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

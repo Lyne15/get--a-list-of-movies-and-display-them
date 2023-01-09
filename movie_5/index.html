@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In China They Eat Dogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- <image src="https://image.tmdb.org/t/p/original//bZt4CwuaZWadSh9OEcNQCZbPFR1.jpg"/> -->
+    <!-- <image src="https://image.tmdb.org/t/p/original//jeH6MaDD1CnZ8TLupBAi0DYWn2F.jpg"/> -->
+    <!-- https://image.tmdb.org/t/p/original///ws7sHs7oVSoVgrLTlEitJ2mJGR8.jpg -->
+
+    <div class="main_content">
+        <p id="original_title">movie title</p>
+        <p id="original_title2">movie title</p>
+        <ul>
+            <li id="genre1"></li>
+            <li id="genre2"></li>
+            <li id="genre3"></li>
+
+        </ul>
+
+
+
+
+    </div>
+
+    <div class="side-nav">
+        <p id="overview"></p>
+        <p id="production_company1">name</p>
+        <p id="country1"></p>
+
+    </div>
+
+
+
+    <script>
+        let movieID = 250;
+        const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+        const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+
+                console.log(data);
+                document.querySelector("#original_title").innerHTML = data.title;
+                document.querySelector("#original_title2").innerHTML = data.title;
+
+                document.querySelector("#overview").innerHTML = data.overview;
+                document.querySelector("#genre1").innerHTML = data.genres[0].name;
+                document.querySelector("#genre3").innerHTML = data.genres[2].name;
+                document.querySelector("#genre2").innerHTML = data.genres[1].name;
+                document.querySelector("#production_company1").innerHTML = data.production_companies[0].name;
+                document.querySelector("#country1").innerHTML = data.production_companies[0].origin_country;
+
+
+
+            });
+    </script>
+
+</body>
+
+</html>

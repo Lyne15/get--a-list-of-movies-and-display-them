@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Metal Jacket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <image id="logo_path" src="https://image.tmdb.org/t/p/original//IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png" height="60px" />
+        <div>
+            <p id="production_company1">name</p>
+            <p id="country1"></p>
+        </div>
+        <div>
+            <p id="production_company2">name</p>
+            <!-- logo_path = none -->
+            <p id="country2"></p>
+        </div>
+
+        <div>
+            <p id="production_company3">name</p>
+            <!-- logo_path = none -->
+            <p id="country3"></p>
+        </div>
+
+    </div>
+    <div class="main_content">
+
+        <p id="original_title">movie title</p>
+        <p id="release_date"></p>
+        <p id="overview"></p>
+
+        <div id="inside-nav">
+            <h3 class="on-nav">GENRES:</h3>
+            <p id="genre1"></p>
+            <p id="genre2"></p>
+            <h3 class="on-nav">SPOKEN LANGUAGE</h3>
+            <p id="spoken_language1">english_name</p>
+            <p id="spoken_language2">english__name</p>
+            <h3 class="on-nav">TAGLINE</h3>
+            <p id="tagline"></p>
+            <h3 class="on-nav">VOTE AVERAGE:</h3>
+            <p id="vote_average"></p>
+            <h3 class="on-nav">VOTE COUNT:</h3>
+            <p id="vote_count"></p>
+        </div>
+    </div>
+
+    <script>
+        let movieID = 600;
+        const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+        const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+
+                console.log(data);
+                document.querySelector("#original_title").innerHTML = data.title;
+                document.querySelector("#overview").innerHTML = data.overview;
+                document.querySelector("#genre1").innerHTML = data.genres[0].name;
+                document.querySelector("#genre2").innerHTML = data.genres[1].name;
+                document.querySelector("#production_company1").innerHTML = data.production_companies[0].name;
+                document.querySelector("#country1").innerHTML = data.production_companies[0].origin_country;
+                document.querySelector("#production_company2").innerHTML = data.production_companies[1].name;
+                document.querySelector("#country2").innerHTML = data.production_companies[1].origin_country;
+                document.querySelector("#production_company3").innerHTML = data.production_companies[2].name;
+                document.querySelector("#country3").innerHTML = data.production_companies[2].origin_country;
+                document.querySelector("#release_date").innerHTML = data.release_date;
+                document.querySelector("#spoken_language1").innerHTML = data.spoken_languages[0].english_name;
+                document.querySelector("#spoken_language2").innerHTML = data.spoken_languages[1].english_name;
+                document.querySelector("#tagline").innerHTML = data.tagline;
+                document.querySelector("#vote_average").innerHTML = data.vote_count;
+                document.querySelector("#vote_count").innerHTML = data.vote_average;
+
+
+            });
+    </script>
+
+</body>
+
+</html>

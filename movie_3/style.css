@@ -1,0 +1,57 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.main_content {
+    background-image: url("https://image.tmdb.org/t/p/original//yozBWKbyeXtPGN75PlHurOaVvEz.jpg");
+}
+
+#original_title {
+    font-size: 3em;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding: 15px 15px;
+    margin: 0;
+
+
+}
+
+#overview {
+    color: black;
+    background-color: aliceblue;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+    width: 20%;
+    padding: 15px 15px;
+    opacity: 60%;
+    margin-left: 3em;
+}
+
+#release_date {
+    color: black;
+    text-align: center;
+}
+
+
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: gray;
+    color: antiquewhite
+}
+
+
+
+#inside-nav {
+    color: white;
+    padding: 15px;
+}
+
+.on-nav {
+    background-color: gray;
+    width: 20%;
+    text-align: center;
+}

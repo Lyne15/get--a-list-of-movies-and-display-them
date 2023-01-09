@@ -1,0 +1,100 @@
+html,
+body {
+    margin: 0;
+    height: 100% 
+}
+
+body {
+    /* background-image: url("https://image.tmdb.org/t/p/original//8kSerJrhrJWKLk1LViesGcnrUPE.jpg"); */
+    /* width: 200%; */
+
+}
+
+.main-content {
+    background-image: url("https://image.tmdb.org/t/p/original/cXQH2u7wUIX1eoIdEj51kHXoWhX.jpg");
+    width: 230%;
+    height: 100%;
+   
+
+}
+
+#movie_title {
+    font-size: 4em;
+    font-family: cursive;
+    text-align: center;
+    color: orange;
+    
+}
+
+#overview {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: black;
+    color: orange;
+    font-size: 1.5em;
+    
+}
+
+.first_company{
+    padding: 10px 10px;
+}
+
+.second_company{
+    padding: 10px 10px;
+
+}
+
+.third_company{
+    padding: 10px 10px;
+
+}
+
+.fourth_company{
+    padding: 10px 10px;
+
+}
+
+.logo_path{
+    height: 30px;
+
+}
+
+.companies{
+    display: flex;
+    border-top: 1px solid black;
+    color: black;
+    background-color: orange;
+    font-size: 6px;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    height: 67px;
+   
+}
+
+.vote{
+    display: flex;
+    font-size: 3em;
+}
+
+#vote_count{
+    padding: 15px;
+}
+
+#vote_average{
+    padding: 15px;
+}
+
+.V-A{
+    padding-left: 15px;
+}
+
+.V-C{
+    padding-left: 15px;
+
+}
+
+#tagline{
+    font-size: 4em;
+    text-align: center;
+}

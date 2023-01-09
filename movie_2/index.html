@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- <image src="https://image.tmdb.org/t/p/original/cXQH2u7wUIX1eoIdEj51kHXoWhX.jpg"/> -->
+    <!-- <image id="poster_path" src="https://image.tmdb.org/t/p/original//8kSerJrhrJWKLk1LViesGcnrUPE.jpg"/> -->
+    <!-- <image id="logo_path" src="https://image.tmdb.org/t/p/original///rUp0lLKa1pr4UsPm8fgzmnNGxtq.png"/> -->
+
+
+
+
+    <div class="main-content">
+        overview:
+        <p id="overview">overview</p>
+        <h1 id="movie_title">the title</h1>
+        <p id="tagline">tagline</p>
+        <p id="release_date">released_date</p>
+
+        
+            
+        <p id="genres1"></p>
+        <p id="genres2"></p>
+
+
+        <div class="companies">
+            <div class="first_company">
+                <p id="country1">origin country</p>
+                <p id="company1">first production company</p>
+                <image class="logo_path" src="https://image.tmdb.org/t/p/original///rUp0lLKa1pr4UsPm8fgzmnNGxtq.png" />
+            </div>
+
+            <div class="second_company">
+                <p id="country2">origin country</p>
+                <p id="company2">second production company</p>
+                <image class="logo_path" src="https://image.tmdb.org/t/p/original//sOg7LGESPH5vCTOIdbMhLuypoLL.png" />
+            </div>
+
+            <div class="third_company">
+                <p id="country3">origin country</p>
+                <p id="company3">third company</p>
+                <!-- logo = none -->
+            </div>
+
+            <div class="fourth_company">
+                <p id="country4">origin country</p>
+                <p id="company4">fourth company</p>
+                <image class="logo_path" src="https://image.tmdb.org/t/p/original///i9qXGJIP9fGN22PP5jXUVENbyHi.png" />
+            </div>
+            <div class="vote">
+                <div>
+                    <!-- <p class="V-A">VOTE AVERAGE</p> -->
+                    <p id="vote_average"></p>
+                </div>
+                <div>
+                    <!-- <p class="V-C"> VOTE COUNT</p> -->
+                    <p id="vote_count"></p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+            let movieID = 100;
+            const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+            const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+
+
+            fetch(API_URL)
+                .then(res => res.json())
+                .then(function (data) {
+
+                    console.log(data);
+                    console.log(data.original_title);
+                    document.querySelector("#movie_title").innerHTML = data.title;
+                    document.querySelector("#genres1").innerHTML = data.genres[0].name;
+                    document.querySelector("#genres2").innerHTML = data.genres[1].name;
+                    document.querySelector("#overview").innerHTML = data.overview;
+                    document.querySelector("#company1").innerHTML = data.production_companies[0].name;
+                    document.querySelector("#company2").innerHTML = data.production_companies[1].name;
+                    document.querySelector("#country1").innerHTML = data.production_companies[0].origin_country;
+                    document.querySelector("#country2").innerHTML = data.production_companies[0].origin_country;
+                    document.querySelector("#company3").innerHTML = data.production_companies[2].name;
+                    document.querySelector("#country3").innerHTML = data.production_companies[2].origin_country;
+                    document.querySelector("#company4").innerHTML = data.production_companies[4].name;
+                    document.querySelector("#country4").innerHTML = data.production_companies[4].origin_country;
+                    document.querySelector("#tagline").innerHTML = data.tagline;
+                    document.querySelector("#release_date").innerHTML = data.release_date;
+                    document.querySelector("#vote_average").innerHTML = data.vote_average;
+                    document.querySelector("#vote_count").innerHTML = data.vote_count;
+
+
+
+
+                });
+        </script>
+    </div>
+</body>
+
+</html>

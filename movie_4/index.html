@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverly Hills Cop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- <image id="backdrop_path" src="c"/> -->
+    <!-- <image id="backdrop_path" src="https://image.tmdb.org/t/p/original//lhZQuT76B9YcxZIudXZMhhWCKcl.jpg"/> -->
+    <!-- <image id="poster_path" src="https://image.tmdb.org/t/p/original//fjKbHh7GpTARbiLj0RF7zc5iD0G.jpg" /> -->
+    <!-- <image id="poster_path" src="https://image.tmdb.org/t/p/original///eBJEvKkhQ0tUt1dBAcTEYW6kCle.jpg"/> -->
+    <div id="main-content">
+        <p id="original_title">movie title</p>
+        <p id="overview"></p>
+
+
+
+        <div class="content">
+            <ul>
+                <h3>PRODUCTION COMPANY</h3>
+                <li id="production_company1"></li>
+                <li id="production_company2"></li>
+                <li id="production_company3"></li>
+            </ul>
+
+
+            <ul>
+                <h3>GENRES</h3>
+                <li id="genre1"></li>
+                <li id="genre2"></li>
+                <li id="genre3"></li>
+            </ul>
+
+            <ul>
+                <h3>RELEASED DATE</h3>
+                <li id="release_date"></li>
+            </ul>
+
+            <ul>
+                <h3>VOTE AVERAGE</h3>
+                <li id="vote_average"></li>
+                <h3>VOTE COUNT</h3>
+                <li id="vote_count"></li>
+            </ul>
+
+            <ul>
+                <h3>TAGLINE</h3>
+                <li id="tagline"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let movieID = 90;
+        const API_KEY = "1a76d232bd9ec86e6d73d8a2ef6962e6";
+        const API_URL = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}`;
+
+
+        fetch(API_URL)
+            .then(res => res.json())
+            .then(function (data) {
+
+                console.log(data);
+                document.querySelector("#original_title").innerHTML = data.title;
+                document.querySelector("#overview").innerHTML = data.overview;
+                document.querySelector("#genre1").innerHTML = data.genres[0].name;
+                document.querySelector("#genre2").innerHTML = data.genres[1].name;
+                document.querySelector("#genre3").innerHTML = data.genres[2].name;
+                document.querySelector("#production_company1").innerHTML = data.production_companies[0].name;
+                document.querySelector("#production_company2").innerHTML = data.production_companies[1].name;
+                document.querySelector("#production_company3").innerHTML = data.production_companies[2].name;
+                document.querySelector("#release_date").innerHTML = data.release_date;
+                document.querySelector("#tagline").innerHTML = data.tagline;
+                document.querySelector("#vote_average").innerHTML = data.vote_average;
+                document.querySelector("#vote_count").innerHTML = data.vote_count;
+
+
+
+            });
+    </script>
+</body>
+
+</html>
